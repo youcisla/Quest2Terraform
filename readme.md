@@ -1,5 +1,5 @@
 
-# Documentation - Projet Quest 2
+# Documentation - Quest 2
 
 ## Introduction
 Ce document contient une documentation détaillée pour compléter chaque étape de la Quest 2, en utilisant Ansible et Terraform pour automatiser les tâches DevOps. Il est structuré pour permettre à un utilisateur débutant de reproduire les étapes et de répondre aux questions posées dans les fichiers PDF fournis.

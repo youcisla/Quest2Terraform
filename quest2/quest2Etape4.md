@@ -1,13 +1,31 @@
-## Qu’est-ce qu’un firewall ?
+# Questions et Réponses :
 
-Un pare-feu est un dispositif de sécurité réseau qui surveille et filtre le trafic réseau entrant et sortant en fonction de règles de sécurité prédéterminées. Il établit une barrière entre un réseau interne fiable et un réseau externe non fiable, tel qu'Internet.
+### Qu’est-ce qu’un firewall ?
 
-## Quelles sont les alternatives à UFW ?
+Un firewall (pare-feu) est un élément clé de la sécurité réseau. Il :
+- **Surveille et filtre** le trafic réseau entrant et sortant.
+- Applique des **règles prédéfinies** pour autoriser ou bloquer certaines communications.
+- Sert de **barrière** entre un réseau interne fiable et un réseau externe potentiellement dangereux, comme Internet.
 
-- iptables
-- nftables
-- Shorewall
+Le pare-feu est essentiel pour protéger les ressources internes contre les cybermenaces.
 
-## À quoi sert Fail2ban ?
+---
 
-Fail2ban est un logiciel de prévention d'intrusion qui protège les serveurs des attaques par force brute en surveillant les fichiers journaux (logs) à la recherche de tentatives de connexion infructueuses.
+### Quelles sont les alternatives à UFW ?
+
+UFW (Uncomplicated Firewall) est une solution populaire pour configurer un pare-feu, mais d'autres outils peuvent être utilisés :
+
+- **iptables** : Une solution avancée pour la gestion des règles de pare-feu sous Linux.
+- **nftables** : Une alternative moderne et performante à iptables.
+- **Shorewall** : Un gestionnaire basé sur iptables, simplifiant la création de règles complexes.
+
+---
+
+### À quoi sert Fail2ban ?
+
+Fail2ban est un outil de protection contre les intrusions, spécialement utile pour prévenir les attaques par force brute. Il fonctionne en :
+- **Surveillant les fichiers journaux** des serveurs.
+- Détectant les tentatives répétées de connexion infructueuses.
+- **Bloquant automatiquement** les adresses IP suspectes pour une durée déterminée.  
+
+C’est une solution efficace pour sécuriser les serveurs sans intervention manuelle constante.

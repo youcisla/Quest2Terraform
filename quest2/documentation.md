@@ -1,18 +1,28 @@
 # Configuration de l'environnement de test Ansible
 
-Cette documentation décrit les étapes à suivre pour configurer l'environnement de test à l'aide d'Ansible.
+Ce guide vous explique comment configurer un environnement de test avec Ansible de manière simple et efficace.
 
 ## Prérequis
 
-- Python installé sur la machine
-- Ansible installé sur la machine
+Avant de commencer, assurez-vous d'avoir :
+
+- **Python** installé sur votre machine.
+- **Ansible** installé.
 
 ## Étapes d'installation
 
-1. Installez Python (s'il n'est pas déjà installé)
-2. Installez Ansible
-- Sur Ubuntu : `sudo apt-get update && sudo apt-get install ansible`
+1. **Installer Python**  
+   Si Python n'est pas encore installé, vous pouvez le télécharger et l'installer depuis le site officiel [python.org](https://www.python.org/).
 
-## Execute le Playbook
+2. **Installer Ansible**  
+   Si vous utilisez Ubuntu, exécutez la commande suivante dans votre terminal :  
+   ```bash
+   sudo apt-get update && sudo apt-get install ansible
+   ```
 
-`ansible-playbook -i inventroy.ini site.yml`
+## Exécuter le Playbook
+
+Pour lancer votre playbook Ansible, utilisez la commande suivante :  
+```bash
+ansible-playbook -i inventory.ini site.yml
+```
