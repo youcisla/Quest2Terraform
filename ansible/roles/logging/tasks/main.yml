@@ -1,0 +1,53 @@
+---
+- name: Install Java
+  apt:
+    name: openjdk-11-jdk
+    state: present
+  become: true
+
+- name: Install Elasticsearch
+  apt:
+    name: elasticsearch
+    state: present
+  become: true
+
+- name: Configure Elasticsearch
+  template:
+    src: elasticsearch.yml.j2
+    dest: /etc/elasticsearch/elasticsearch.yml
+  become: true
+
+- name: Install Logstash
+  apt:
+    name: logstash
+    state: present
+  become: true
+
+- name: Configure Logstash
+  template:
+    src: logstash.conf.j2
+    dest: /etc/logstash/conf.d/logstash.conf
+  become: true
+
+- name: Install Kibana
+  apt:
+    name: kibana
+    state: present
+  become: true
+
+- name: Configure Kibana
+  template:
+    src: kibana.yml.j2
+    dest: /etc/kibana/kibana.yml
+  become: true
+
+- name: Start Elasticsearch, Logstash, and Kibana
+  systemd:
+    name: "{{ item }}"
+    state: started
+    enabled: true
+  loop:
+    - elasticsearch
+    - logstash
+    - kibana
+  become: true

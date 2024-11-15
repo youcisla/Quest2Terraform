@@ -1,0 +1,34 @@
+---
+- hosts: proxy
+  tasks:
+    - name: Gather facts
+      setup:
+
+- hosts: reverse_proxy
+  roles:
+    - reverse_proxy
+
+- hosts: all
+  tasks:
+    - name: Ping the hosts
+      ping:
+
+- hosts: mysql
+  roles:
+    - mysql
+
+- hosts: crowdin
+  roles:
+    - crowdin
+
+- hosts: logging
+  roles:
+    - logging
+
+- hosts: all
+  roles:
+    - security
+
+- hosts: all
+  roles:
+    - filebeat

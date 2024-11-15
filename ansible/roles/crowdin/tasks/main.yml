@@ -1,0 +1,25 @@
+---
+- name: Install required packages
+  apt:
+    name:
+      - wget
+      - unzip
+    state: present
+  become: true
+
+- name: Download Crowdin CLI
+  unarchive:
+    src: https://crowdin.com/downloads/crowdin-cli.zip
+    dest: /opt/
+    remote_src: yes
+  become: true
+
+- name: Create Crowdin configuration file
+  template:
+    src: crowdin.yml.j2
+    dest: /opt/crowdin-cli/crowdin.yml
+  become: true
+
+- name: Run Crowdin sync
+  command: /opt/crowdin-cli/crowdin upload sources
+  become: true

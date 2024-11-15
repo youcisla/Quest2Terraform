@@ -1,0 +1,36 @@
+---
+- name: Install Nginx
+  apt:
+    name: nginx
+    state: present
+  become: true
+
+- name: Configure Nginx reverse proxy
+  template:
+    src: nginx.conf.j2
+    dest: /etc/nginx/conf.d/crowdin.conf
+  become: true
+
+- name: Restart Nginx
+  service:
+    name: nginx
+    state: restarted
+  become: true
+
+- name: Install Fail2ban
+  apt:
+    name: fail2ban
+    state: present
+  become: true
+
+- name: Configure Fail2ban
+  template:
+    src: fail2ban.conf.j2
+    dest: /etc/fail2ban/jail.local
+  become: true
+
+- name: Restart Fail2ban
+  service:
+    name: fail2ban
+    state: restarted
+  become: true
