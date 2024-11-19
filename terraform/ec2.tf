@@ -1,6 +1,6 @@
 resource "aws_key_pair" "deploy_key" {
   key_name   = "deploy_idrsa"
-  public_key = file("../deploy_idrsa.pub")
+  public_key = file("./deploy_idrsa.pub")
 }
 
 resource "aws_security_group" "allow_all" {
@@ -32,7 +32,7 @@ resource "aws_instance" "reverse_proxy" {
 
   associate_public_ip_address = true
 
-  vpc_security_group_ids = [aws_security_group.allow_all.id]
+  vpc_security_group_ids = [module.security_group.dynamic_security_group_id]
   subnet_id              = aws_subnet.internal_subnet.id
 
   root_block_device {
@@ -55,7 +55,7 @@ resource "aws_instance" "backend1" {
 
   associate_public_ip_address = false
 
-  vpc_security_group_ids = [aws_security_group.allow_all.id]
+  vpc_security_group_ids = [module.security_group.dynamic_security_group_id]
   subnet_id              = aws_subnet.internal_subnet.id
 
   root_block_device {
@@ -78,7 +78,7 @@ resource "aws_instance" "backend2" {
 
   associate_public_ip_address = false
 
-  vpc_security_group_ids = [aws_security_group.allow_all.id]
+  vpc_security_group_ids = [module.security_group.dynamic_security_group_id]
   subnet_id              = aws_subnet.internal_subnet.id
 
   root_block_device {
@@ -101,7 +101,7 @@ resource "aws_instance" "database" {
 
   associate_public_ip_address = false
 
-  vpc_security_group_ids = [aws_security_group.allow_all.id]
+  vpc_security_group_ids = [module.security_group.dynamic_security_group_id]
   subnet_id              = aws_subnet.internal_subnet.id
 
   root_block_device {

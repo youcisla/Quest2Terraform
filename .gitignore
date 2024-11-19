@@ -1,8 +1,6 @@
-deploy_idrsa
-deploy_idrsa.pub
 terraform/.terraform
 terraform/.terraform.lock.hcl
 terraform/terraform.tfstate
 terraform/terraform.tfstate.backup
-terraform/terraform.tfvars
 ansible/site.retry
+terraform/terraform.tfvars
