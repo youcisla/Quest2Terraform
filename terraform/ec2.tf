@@ -1,5 +1,5 @@
 resource "aws_key_pair" "deploy_key" {
-  key_name   = "deploy_idrsa"
+  key_name   = "Youcef_key"
   public_key = file("./deploy_idrsa.pub")
 }
 
